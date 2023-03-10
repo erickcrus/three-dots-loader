@@ -1,0 +1,55 @@
+{
+  "name": "@erickcrus/three-dots-loader",
+  "version": "0.0.01",
+  "description": "A lightweight three-dots-loader animated component.",
+  "main": "lib/commonjs/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepack": "bob build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erickcrus/three-dots-loader.git"
+  },
+  "keywords": [
+    "react-native",
+    "react",
+    "io",
+    "android",
+    "three-dots",
+    "three",
+    "dots",
+    "loader",
+    "three-dots-loader"
+  ],
+  "author": "Erick Crus <erickcrus_@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erickcrus/three-dots-loader/issues"
+  },
+  "homepage": "https://github.com/erickcrus/three-dots-loader#readme",
+  "react-native": "src/index.js",
+  "devDependencies": {
+    "react-native-builder-bob": "^0.20.4"
+  },
+  "module": "lib/module/index.js",
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module"
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
+}
