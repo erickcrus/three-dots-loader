@@ -22,7 +22,7 @@ const Loader = (props: Props) => {
 
   useEffect(() => {
     for (let i = 0; i < count; i++) {
-      if (sizeList) {
+      if (sizeList[i] !== undefined) {
         let d = animationDuration ?? 600;
         sizeList[i].value = withRepeat(withDelay(d * i / 2, withSequence(withTiming(1.3, { duration: d }), withTiming(1, { duration: d }))), -1, true) ?? 1;
       }
