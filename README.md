@@ -45,7 +45,7 @@ return () => {
 
 ## Properties
 |Prop               |Type       |Default    |Description                |
-|-------------------|:---------:|:---------:|---------------------------|
+|-------------------|:---------:|-----------|---------------------------|
 |size               |number     |required   |Size of dots               |
 |animationDuration  |number     |`600`      |Animation duration in ms   |
 |color              |string     |`#00b9fc`  |Dots color                 |
