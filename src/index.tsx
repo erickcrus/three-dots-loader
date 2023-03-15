@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
-import { SharedValue } from 'react-native-reanimated/lib/types/lib/reanimated2/commonTypes';
 
 type Props = {
   size: number,
@@ -13,7 +12,7 @@ type Props = {
 
 const Loader = (props: Props) => {
   const { size, animationDuration, color, spacing } = props;
-  const sizeList = useRef<SharedValue<number>>([useSharedValue(1), useSharedValue(1), useSharedValue(1)]);
+  const sizeList = useRef([useSharedValue(1), useSharedValue(1), useSharedValue(1)]);
   const count = sizeList.current.length;
 
   const circleColor = color ?? '#00b9fc';
