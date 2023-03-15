@@ -11,7 +11,11 @@ type Props = {
 
 const Loader = (props: Props) => {
   const { size, animationDuration, color, spacing } = props;
-  const sizeList = useRef([useSharedValue(1), useSharedValue(1), useSharedValue(1)]);
+  const sizeList = useRef([
+    useSharedValue(1),
+    useSharedValue(1),
+    useSharedValue(1)
+  ]);
   const count = sizeList.current.length;
 
   const circleColor = color ?? '#00b9fc';
@@ -23,7 +27,7 @@ const Loader = (props: Props) => {
         sizeList.current[i].value = withRepeat(withDelay(d * i / 2, withSequence(withTiming(1.3, { duration: d }), withTiming(1, { duration: d }))), -1, true) ?? 1;
       }
     }
-  }, [sizeList]);
+  }, [sizeList, animationDuration, count]);
 
   const animated = useRef<{ transform: { scale: number }[] }[]>([]);
   const listItems = useRef([<Animated.View />]);
@@ -33,7 +37,7 @@ const Loader = (props: Props) => {
       return {
         transform: [{ scale }]
       }
-    });
+    }, [sizeList.current[i].value]);
     listItems.current[i] = <Animated.View key={'ball' + i} style={[{
       width: size,
       height: size,
