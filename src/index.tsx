@@ -23,7 +23,7 @@ const Loader = (props: Props) => {
         sizeList.current[i].value = withRepeat(withDelay(d * i / 2, withSequence(withTiming(1.3, { duration: d }), withTiming(1, { duration: d }))), -1, true);
       }
     }
-  }, []);
+  }, [sizeList]);
 
   const animated = useRef<{ transform: { scale: number }[] }[]>([]);
   const listItems = useRef([<Animated.View />]);
