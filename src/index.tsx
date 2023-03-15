@@ -19,7 +19,7 @@ const Loader = (props: Props) => {
 
   useEffect(() => {
     for (let i = 0; i < count; i++) {
-      if (sizeList.current[i]) {
+      if (sizeList.current[i] && Object.keys(sizeList.current[i]).includes('value')) {
         let d = animationDuration ?? 600;
         sizeList.current[i].value = withRepeat(withDelay(d * i / 2, withSequence(withTiming(1.3, { duration: d }), withTiming(1, { duration: d }))), -1, true);
       }
@@ -27,7 +27,7 @@ const Loader = (props: Props) => {
   }, []);
 
   const animated = useRef<{ transform: { scale: number }[] }[]>([]);
-  const listItems = useRef<Animated.View[]>([]);
+  const listItems = useRef([<Animated.View />]);
   for (let i = 0; i < count; i++) {
     animated.current[i] = useAnimatedStyle(() => {
       const scale = sizeList.current[i]?.value ?? 1;
