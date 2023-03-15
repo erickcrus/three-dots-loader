@@ -25,12 +25,12 @@ const Loader = (props: Props) => {
   }, []);
 
   const animated = useRef([]);
-  let listItems = [];
+  const listItems = useRef([]);
   for (let i = 0; i < count; i++) {
     animated.current[i] = useAnimatedStyle(() => ({
       transform: [{ scale: sizeList.current[i].value }]
     }));
-    listItems[i] = <Animated.View key={'ball' + i} style={[{
+    listItems.current[i] = <Animated.View key={'ball' + i} style={[{
       width: size,
       height: size,
       marginHorizontal: spacing ?? 3,
@@ -45,7 +45,7 @@ const Loader = (props: Props) => {
     alignItems: 'center',
     justifyContent: 'center',
   }}>
-    {listItems}
+    {listItems.current}
   </View>
 }
 
