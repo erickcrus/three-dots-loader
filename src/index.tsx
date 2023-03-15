@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View } from 'react-native';
-import Animated, { useAnimatedStyle, useSharedValue, withDelay, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
+import Animated, { SharedValue, useAnimatedStyle, useSharedValue, withDelay, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
 
 type Props = {
   size: number,
@@ -11,7 +11,7 @@ type Props = {
 
 const Loader = (props: Props) => {
   const { size, animationDuration, color, spacing } = props;
-  const sizeList = useRef([
+  const sizeList = useRef<SharedValue<number>[]>([
     useSharedValue(1),
     useSharedValue(1),
     useSharedValue(1)
@@ -37,7 +37,7 @@ const Loader = (props: Props) => {
       return {
         transform: [{ scale }]
       }
-    }, [sizeList.current[i].value]);
+    }, [sizeList]);
     listItems.current[i] = <Animated.View key={'ball' + i} style={[{
       width: size,
       height: size,
