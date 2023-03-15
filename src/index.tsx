@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View } from 'react-native';
-import Animated, { SharedValue, useAnimatedStyle, useSharedValue, withDelay, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
+import Animated, { useAnimatedStyle, useSharedValue, withDelay, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
 
 type Props = {
   size: number,
