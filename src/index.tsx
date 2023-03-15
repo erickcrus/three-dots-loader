@@ -11,13 +11,13 @@ type Props = {
 
 const Loader = (props: Props) => {
   const { size, animationDuration, color, spacing } = props;
-  const sizeList = useRef<SharedValue<number>[]>([useSharedValue(1), useSharedValue(1), useSharedValue(1)]);
+  const sizeList = useRef([useSharedValue(1), useSharedValue(1), useSharedValue(1)]);
   const count = sizeList.current.length;
 
   const circleColor = color ?? '#00b9fc';
 
   useEffect(() => {
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < 3; i++) {
       if (sizeList.current[i]) {
         let d = animationDuration ?? 600;
         sizeList.current[i].value = withRepeat(withDelay(d * i / 2, withSequence(withTiming(1.3, { duration: d }), withTiming(1, { duration: d }))), -1, true);
