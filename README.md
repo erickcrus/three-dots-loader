@@ -43,6 +43,14 @@ return () => {
 }
 ```
 
+## Properties
+|Prop               |Type       |Default    |Description                |
+|-------------------|:---------:|:---------:|---------------------------|
+|size               |number     |required   |Size of dots               |
+|animationDuration  |number     |`600`      |Animation duration in ms   |
+|color              |string     |`#00b9fc`  |Dots color                 |
+|spacing            |number     |`3`        |Dots horizontal margin     |
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
