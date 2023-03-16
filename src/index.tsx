@@ -11,40 +11,35 @@ type Props = {
 
 const Loader = (props: Props) => {
   const { size, animationDuration, color, spacing } = props;
-  const sizeList = [
-    useSharedValue(1),
-    useSharedValue(1),
-    useSharedValue(1)
-  ];
-  const count = sizeList.length;
+  const dot_1 = useSharedValue(1);
+  const dot_2 = useSharedValue(1);
+  const dot_3 = useSharedValue(1);
 
   const circleColor = color ?? '#00b9fc';
 
   useEffect(() => {
-    for (let i = 0; i < count; i++) {
-      if (sizeList[i] !== undefined) {
-        let d = animationDuration ?? 600;
-        sizeList[i].value = withRepeat(withDelay(d * i / 2, withSequence(withTiming(1.3, { duration: d }), withTiming(1, { duration: d }))), -1, true) ?? 1;
-      }
-    }
-  }, [sizeList, animationDuration, count]);
+    let d = animationDuration ?? 600;
+    dot_1.value = withRepeat(withSequence(withTiming(1.3, { duration: d }), withTiming(1, { duration: d })), -1, true) ?? 1;
+    dot_2.value = withRepeat(withDelay(d / 2, withSequence(withTiming(1.3, { duration: d }), withTiming(1, { duration: d }))), -1, true) ?? 1;
+    dot_3.value = withRepeat(withDelay(d, withSequence(withTiming(1.3, { duration: d }), withTiming(1, { duration: d }))), -1, true) ?? 1;
+  }, []);
 
-  const animated = useRef<{ transform: { scale: number }[] }[]>([]);
-  const listItems = useRef([<Animated.View />]);
-  for (let i = 0; i < count; i++) {
-    animated.current[i] = useAnimatedStyle(() => {
-      const scale = sizeList[i]?.value ?? 1;
-      return {
-        transform: [{ scale }]
-      }
-    }, [sizeList]);
-    listItems.current[i] = <Animated.View key={'ball' + i} style={[{
-      width: size,
-      height: size,
-      marginHorizontal: spacing ?? 3,
-      borderRadius: size / 2,
-      backgroundColor: circleColor,
-    }, animated.current[i]]} />
+  const animated_1 = useAnimatedStyle(() => ({
+    transform: [{ scale:dot_1.value }]
+  }));
+  const animated_2 = useAnimatedStyle(() => ({
+    transform: [{ scale: dot_2.value }]
+  }));
+  const animated_3 = useAnimatedStyle(() => ({
+    transform: [{ scale: dot_3.value }]
+  }));
+
+  const style = {
+    width: size,
+    height: size,
+    marginHorizontal: spacing ?? 3,
+    borderRadius: size / 2,
+    backgroundColor: circleColor,
   }
 
   return <View style={{
@@ -53,7 +48,9 @@ const Loader = (props: Props) => {
     alignItems: 'center',
     justifyContent: 'center',
   }}>
-    {listItems.current}
+    <Animated.View style={[style, animated_1]} />
+    <Animated.View style={[style, animated_2]} />
+    <Animated.View style={[style, animated_3]} />
   </View>
 }
 
