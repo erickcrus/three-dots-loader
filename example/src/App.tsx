@@ -1,31 +1,34 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import Loader from '@erickcrus/three-dots-loader';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from '@erickcrus/three-dots-loader';
+const AppScreen = () => {
+  const [loading, setLoading] = useState(false);
 
-export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const onPress = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1250);
+  }
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
-  return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+  return <View style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
+      <Text>Press button to test</Text>
     </View>
-  );
+    <TouchableOpacity style={{
+      flex: 0,
+      backgroundColor: '#00b9fc',
+      paddingVertical: 10,
+      width: '82%',
+      alignSelf: 'center',
+      borderRadius: 10
+    }} onPress={onPress}>
+      {loading ?
+        <Loader size={8} color='#FFF' /> :
+        <Text style={{ color: '#FFF' }}>Test</Text>}
+    </TouchableOpacity>
+  </View>;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
+export default AppScreen;

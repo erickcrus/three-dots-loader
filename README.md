@@ -15,7 +15,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Loader from '@erickcrus/three-dots-loader';
 
-return () => {
+const AppScreen = () => {
     const [ loading, setLoading ] = useState(false);
 
     const onPress = () => {
@@ -37,7 +37,9 @@ return () => {
             alignSelf: 'center',
             borderRadius: 10
         }} onPress={onPress}>
-            {loading ? <Loader size={8} color='#FFF' /> : <Text style={{color:'#FFF'}}>Test</Text>}
+            {loading ?
+                <Loader size={8} color='#FFF' /> :
+                <Text style={{color:'#FFF'}}>Test</Text>}
         </TouchableOpacity>
     </View>;
 }
