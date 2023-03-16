@@ -27,7 +27,7 @@ return () => {
 
     return <View style={{ flex:1 }}>
         <View style={{ flex:1 }}>
-            <Text>Pressione o botão para testar</Text>
+            <Text>Press button to test</Text>
         </View>
         <TouchableOpacity style={{
             flex:0,
@@ -37,7 +37,7 @@ return () => {
             alignSelf: 'center',
             borderRadius: 10
         }} onPress={onPress}>
-            {loading ? <Loader size={8} color='#FFF'> : <Text style={{color:'#FFF'}}>Test</Text>}
+            {loading ? <Loader size={8} color='#FFF' /> : <Text style={{color:'#FFF'}}>Test</Text>}
         </TouchableOpacity>
     </View>;
 }
