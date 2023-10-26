@@ -1,6 +1,6 @@
 {
   "name": "@erickcrus/three-dots-loader",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -84,7 +84,7 @@
     "@types/react": "17.0.21"
   },
   "peerDependencies": {
-    "react-native-reanimated": "^2.13.0"
+    "react-native-reanimated": "*"
   },
   "engines": {
     "node": ">= 16.0.0"
