@@ -1,6 +1,6 @@
 {
-  "name": "@erickcrus/three-dots-loader",
-  "version": "0.0.8",
+  "name": "@brbtcoficial/three-dots-loader",
+  "version": "0.0.1",
   "description": "lightweight three dots animation library for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
