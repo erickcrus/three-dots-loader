@@ -1,6 +1,6 @@
 {
   "name": "@brbtcoficial/three-dots-loader",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "A lightweight three dots animation for react-native using reanimated",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -39,7 +39,7 @@
     "example": "yarn workspace @brbtcoficial/three-dots-loader-example",
     "test": "jest",
     "typecheck": "tsc",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint \"**/*.{js,ts,tsx}\" --fix",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
     "release": "release-it"
@@ -183,5 +183,8 @@
     "type": "view-legacy",
     "languages": "kotlin-objc",
     "version": "0.41.1"
+  },
+  "dependencies": {
+    "react-native-reanimated": "^3.8.1"
   }
 }
